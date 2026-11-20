@@ -1,51 +1,109 @@
-# HealthGuard – how to run (VS Code, Windows)
+# 🩺 Health Buddy AI
+### Machine Learning-Based Disease Risk Prediction System
 
-## 1. One-time setup
-1. Install **Python 3.10 or newer** from python.org. Tick **"Add Python to PATH"**.
-2. Install **VS Code** from code.visualstudio.com and its **Python** extension.
-3. Right-click the ZIP file → **Extract All**. (VS Code cannot open a ZIP directly.)
+Health Buddy AI is a machine learning-based healthcare project designed to predict potential disease risks based on user-provided health information and symptoms. It aims to make preliminary health risk awareness easier through intelligent machine learning models.
 
-## 2. Open the project
-**File → Open Folder** → choose the extracted folder that contains `app.py`. Open the terminal: **Terminal → New Terminal**.
+## 🚀 Features
 
-## 3. Install and run (type these one by one)
+- Predicts potential disease risks using machine learning.
+- User-friendly interface for entering health information.
+- Multiple machine learning algorithms.
+- Displays prediction results.
+- Helps users understand potential health risks.
+
+## 🧠 Machine Learning Algorithms
+
+The project explores machine learning algorithms such as:
+
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
+- AdaBoost
+- Extra Trees Classifier
+
+## 🛠️ Technologies Used
+
+- Python
+- Machine Learning
+- Scikit-learn
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Flask (if used in the application)
+
+## 📂 Project Structure
+
+```text
+Health-Buddy-AI/
+│
+├── dataset/
+├── models/
+├── static/
+├── templates/
+├── app.py
+├── requirements.txt
+└── README.md
 ```
+
+*Note: Adjust the folder structure according to your actual project files.*
+
+## ⚙️ Installation and Setup
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/rahulgorai8251-create/healthbuddy.git
+```
+
+**2. Navigate to the project directory**
+
+```bash
+cd healthbuddy
+```
+
+**3. Create a virtual environment**
+
+```bash
 python -m venv venv
+```
+
+**4. Activate the virtual environment**
+
+Windows:
+
+```bash
 venv\Scripts\activate
+```
+
+**5. Install dependencies**
+
+```bash
 pip install -r requirements.txt
+```
+
+**6. Run the application**
+
+```bash
 python app.py
 ```
-Mac / Linux: use `python3` and `source venv/bin/activate`.
-Next time you only need `venv\Scripts\activate` and `python app.py`.
 
-## 4. See the website
-The terminal prints `Running on http://127.0.0.1:5000`. Ctrl+click it, or type `127.0.0.1:5000` in Chrome. Stop the server with **Ctrl + C**.
+## 🎯 Project Objective
 
-## 5. Features to try
-Check-up (type, or upload a report photo/PDF), voice symptoms (mic button, Chrome/Edge), Hindi (button at the top right), Results with certainty and "Why this result?", What-if sliders, PDF report, Learn more links, Sign up / Login and History, Reset all.
+The main objective of Health Buddy AI is to explore how machine learning can support healthcare awareness by analyzing health-related data and identifying potential disease risks.
 
-- **Report upload and voice need internet the first time** (the reader library loads from the internet). Everything else works offline except Google Fonts.
-- Photos work best when the numbers are sharp and well lit. Always check the values it fills in.
+## ⚠️ Disclaimer
 
-## 6. Problems
-| Problem | Fix |
-|---|---|
-| `python` not found | reinstall Python and tick "Add to PATH", restart VS Code |
-| `activate` blocked (red error) | run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, then try again |
-| `requirements.txt` not found | you are in the wrong folder: `cd` into the folder that contains `app.py` |
-| "Re-training them now" message | normal. Your library versions differ from mine. Wait a few minutes |
-| Port 5000 already in use | change `port=5000` to `5001` at the bottom of app.py, or set `PORT=5001` |
-| Mic button does nothing | use Chrome or Edge and allow the microphone |
-| Fonts look different offline | normal. Fonts load from Google when you are online |
-| Forgot to log out / want a clean start | stop the server and delete `healthguard.db` (all accounts and history are removed) |
+Health Buddy AI is developed for educational and research purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment.
 
-## 7. Share it
-See `docs/DEPLOY.md` (same Wi-Fi, or a public link with GitHub + Render / Google Cloud Run).
+## 👨‍💻 Developed By
 
-## 8. Retrain (optional)
-`python train_models.py` retrains all models on your PC (a few minutes), or use `notebook/HealthGuard_Colab_Training.ipynb` on Google Colab.
+**Rahul Gorai**
 
-## 9. For your presentation
-Read `docs/VIVA_GUIDE.md`.
-# healthbuddy
-AI-powered disease prediction using machine learning based on user symptoms
+GitHub: https://github.com/rahulgorai8251-create
+
+---
+
+⭐ If you find this project interesting, consider giving it a star on GitHub!
