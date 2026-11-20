@@ -47,3 +47,5 @@ See `docs/DEPLOY.md` (same Wi-Fi, or a public link with GitHub + Render / Google
 
 ## 9. For your presentation
 Read `docs/VIVA_GUIDE.md`.
+# healthbuddy
+AI-powered disease prediction using machine learning based on user symptoms
