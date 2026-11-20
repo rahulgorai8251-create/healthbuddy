@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+healthguard.db
+.secret_key
+train.log
+.vscode/

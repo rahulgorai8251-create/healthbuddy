@@ -1,0 +1,294 @@
+{
+ "symptom": {
+  "title": "Symptoms to disease (41 diseases)",
+  "best": "Random Forest",
+  "algorithms": {
+   "Decision Tree": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "partial_symptom_accuracy": 0.8488,
+    "train_time_s": 0.2
+   },
+   "Random Forest": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "partial_symptom_accuracy": 0.9343,
+    "train_time_s": 2.0
+   },
+   "Naive Bayes": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "partial_symptom_accuracy": 0.9407,
+    "train_time_s": 0.1
+   },
+   "SVM": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "partial_symptom_accuracy": 0.9209,
+    "train_time_s": 0.5
+   },
+   "KNN": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "partial_symptom_accuracy": 0.8948,
+    "train_time_s": 0.1
+   },
+   "Logistic Regression": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "partial_symptom_accuracy": 0.9343,
+    "train_time_s": 0.6
+   },
+   "Gradient Boosting": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "partial_symptom_accuracy": 0.8881,
+    "train_time_s": 27.1
+   },
+   "Extra Trees": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "partial_symptom_accuracy": 0.9113,
+    "train_time_s": 3.5
+   },
+   "Neural Network (MLP)": {
+    "cv_accuracy": 0.9967,
+    "cv_std": 0.0067,
+    "partial_symptom_accuracy": 0.9375,
+    "train_time_s": 29.8
+   },
+   "AdaBoost": {
+    "cv_accuracy": 0.5621,
+    "cv_std": 0.0695,
+    "partial_symptom_accuracy": 0.2598,
+    "train_time_s": 2.8
+   }
+  },
+  "final_test_file_accuracy": 0.9762,
+  "note": "test_data.csv rows also appear in training data, so the honest numbers are the cross-validation scores.",
+  "rows_raw": 4920,
+  "rows_clean": 304,
+  "n_diseases": 41
+ },
+ "heart_clinical": {
+  "title": "Heart disease (clinical data)",
+  "best": "Tuned Random Forest",
+  "algorithms": {
+   "Decision Tree": {
+    "cv_accuracy": 0.6677,
+    "cv_std": 0.0618,
+    "train_time_s": 0.0
+   },
+   "Random Forest": {
+    "cv_accuracy": 0.751,
+    "cv_std": 0.0349,
+    "train_time_s": 1.2
+   },
+   "Extra Trees": {
+    "cv_accuracy": 0.7551,
+    "cv_std": 0.0312,
+    "train_time_s": 0.8
+   },
+   "Naive Bayes": {
+    "cv_accuracy": 0.7551,
+    "cv_std": 0.0363,
+    "train_time_s": 0.0
+   },
+   "SVM": {
+    "cv_accuracy": 0.78,
+    "cv_std": 0.039,
+    "train_time_s": 0.0
+   },
+   "KNN": {
+    "cv_accuracy": 0.7841,
+    "cv_std": 0.0508,
+    "train_time_s": 0.0
+   },
+   "Logistic Regression": {
+    "cv_accuracy": 0.7844,
+    "cv_std": 0.0378,
+    "train_time_s": 0.0
+   },
+   "Gradient Boosting": {
+    "cv_accuracy": 0.7301,
+    "cv_std": 0.0581,
+    "train_time_s": 0.3
+   },
+   "AdaBoost": {
+    "cv_accuracy": 0.7759,
+    "cv_std": 0.0424,
+    "train_time_s": 0.5
+   },
+   "Neural Network (MLP)": {
+    "cv_accuracy": 0.7176,
+    "cv_std": 0.046,
+    "train_time_s": 1.0
+   },
+   "Voting Ensemble": {
+    "cv_accuracy": 0.7634,
+    "cv_std": 0.0411,
+    "train_time_s": 0.8
+   },
+   "Tuned Logistic Regression": {
+    "cv_accuracy": 0.7843,
+    "cv_std": 0.0427,
+    "train_time_s": 0.9
+   },
+   "Tuned Random Forest": {
+    "cv_accuracy": 0.8051,
+    "cv_std": 0.0547,
+    "train_time_s": 33.8,
+    "test_accuracy": 0.7541,
+    "test_f1": 0.717
+   }
+  },
+  "test_accuracy": 0.7541,
+  "test_f1": 0.717,
+  "rows_clean": 302,
+  "note": "1025 rows -> 302 after removing duplicates"
+ },
+ "heart_lifestyle": {
+  "title": "Heart disease (lifestyle + vitals)",
+  "best": "Random Forest",
+  "algorithms": {
+   "Decision Tree": {
+    "cv_accuracy": 0.9997,
+    "cv_std": 0.0004,
+    "train_time_s": 0.1
+   },
+   "Random Forest": {
+    "cv_accuracy": 0.9995,
+    "cv_std": 0.0007,
+    "train_time_s": 2.0,
+    "test_accuracy": 1.0,
+    "test_f1": 1.0
+   },
+   "Naive Bayes": {
+    "cv_accuracy": 0.8317,
+    "cv_std": 0.0101,
+    "train_time_s": 0.1
+   },
+   "SVM": {
+    "cv_accuracy": 0.936,
+    "cv_std": 0.0031,
+    "train_time_s": 1.5
+   },
+   "KNN": {
+    "cv_accuracy": 0.898,
+    "cv_std": 0.0076,
+    "train_time_s": 0.2
+   },
+   "Logistic Regression": {
+    "cv_accuracy": 0.9255,
+    "cv_std": 0.0034,
+    "train_time_s": 0.1
+   },
+   "Gradient Boosting": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "train_time_s": 4.2
+   },
+   "Extra Trees": {
+    "cv_accuracy": 0.9318,
+    "cv_std": 0.0063,
+    "train_time_s": 1.6
+   },
+   "AdaBoost": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "train_time_s": 2.4
+   },
+   "Neural Network (MLP)": {
+    "cv_accuracy": 0.9725,
+    "cv_std": 0.0067,
+    "train_time_s": 11.5
+   },
+   "Voting Ensemble": {
+    "cv_accuracy": 1.0,
+    "cv_std": 0.0,
+    "train_time_s": 5.7
+   }
+  },
+  "test_accuracy": 1.0,
+  "test_f1": 1.0,
+  "rows_clean": 50000,
+  "note": "Synthetic dataset: labels follow simple rules, so scores are very high. Real-world accuracy would be lower."
+ },
+ "diabetes": {
+  "title": "Diabetes risk",
+  "best": "Logistic Regression",
+  "algorithms": {
+   "Decision Tree": {
+    "cv_accuracy": 0.7183,
+    "cv_std": 0.0257,
+    "train_time_s": 0.0
+   },
+   "Random Forest": {
+    "cv_accuracy": 0.7508,
+    "cv_std": 0.0224,
+    "train_time_s": 1.4
+   },
+   "Extra Trees": {
+    "cv_accuracy": 0.7639,
+    "cv_std": 0.0254,
+    "train_time_s": 1.0
+   },
+   "Naive Bayes": {
+    "cv_accuracy": 0.7509,
+    "cv_std": 0.0256,
+    "train_time_s": 0.0
+   },
+   "SVM": {
+    "cv_accuracy": 0.7672,
+    "cv_std": 0.0234,
+    "train_time_s": 0.1
+   },
+   "KNN": {
+    "cv_accuracy": 0.7623,
+    "cv_std": 0.0314,
+    "train_time_s": 0.0
+   },
+   "Logistic Regression": {
+    "cv_accuracy": 0.7818,
+    "cv_std": 0.0198,
+    "train_time_s": 0.0,
+    "test_accuracy": 0.7143,
+    "test_f1": 0.5769
+   },
+   "Gradient Boosting": {
+    "cv_accuracy": 0.7395,
+    "cv_std": 0.0179,
+    "train_time_s": 0.5
+   },
+   "AdaBoost": {
+    "cv_accuracy": 0.759,
+    "cv_std": 0.012,
+    "train_time_s": 0.7
+   },
+   "Neural Network (MLP)": {
+    "cv_accuracy": 0.7623,
+    "cv_std": 0.0293,
+    "train_time_s": 4.5
+   },
+   "Voting Ensemble": {
+    "cv_accuracy": 0.7493,
+    "cv_std": 0.0268,
+    "train_time_s": 1.6
+   },
+   "Tuned Logistic Regression": {
+    "cv_accuracy": 0.7867,
+    "cv_std": 0.0162,
+    "train_time_s": 1.0
+   },
+   "Tuned Random Forest": {
+    "cv_accuracy": 0.7672,
+    "cv_std": 0.025,
+    "train_time_s": 36.3
+   }
+  },
+  "test_accuracy": 0.7143,
+  "test_f1": 0.5769,
+  "rows_clean": 768,
+  "note": "Impossible zero values in Glucose, BloodPressure and BMI were replaced by the median."
+ }
+}

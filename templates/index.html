@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HealthGuard – Health risk prediction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- ================= NAVBAR (links change the page without reloading) ================= -->
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#/home" aria-label="HealthGuard home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 28S4 20.5 4 12.2C4 8.2 7 5.5 10.4 5.5c2.3 0 4.3 1.2 5.6 3.2 1.3-2 3.3-3.2 5.6-3.2C25 5.5 28 8.2 28 12.2 28 20.5 16 28 16 28Z" fill="#0B5D57"/><path d="M6 16h6l2-4 3 8 2-4h7" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      HealthGuard
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#/home" data-page="home" data-i18n="nav_home">Home</a>
+      <a href="#/checkup" data-page="checkup" data-i18n="nav_checkup">Check-up</a>
+      <a href="#/results" data-page="results" data-i18n="nav_results">Results</a>
+      <a href="#/history" data-page="history" id="navHistory" hidden data-i18n="nav_history">History</a>
+      <a href="#/models" data-page="models" data-i18n="nav_models">Models</a>
+      <a href="#/how" data-page="how" data-i18n="nav_how">How it works</a>
+    </nav>
+    <div class="nav-right">
+      <button type="button" class="lang-btn" id="langBtn" aria-label="Change language">हिन्दी</button>
+      <a class="btn small" href="#/login" id="loginBtn" data-i18n="btn_login">Login / Sign up</a>
+      <span class="who" id="whoBox" hidden><span id="whoName"></span><button type="button" class="link-btn" id="logoutBtn" data-i18n="btn_logout">Logout</button></span>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= PAGE: HOME ================= -->
+<section class="page active" id="page-home" style="padding-top:0">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="pill" data-i18n="pill">AI health risk screening</span>
+        <h1 data-i18n="h1">Find out your health risk before it becomes a problem</h1>
+        <p class="lead" data-i18n="lead">Enter your vitals and symptoms. Get likely conditions, a three-level risk, and a diet and precaution plan in under a minute.</p>
+        <div class="hero-actions">
+          <a class="btn big" href="#/checkup" data-i18n="btn_start">Start check-up</a>
+          <a class="btn big ghost" href="#/how" data-i18n="btn_how">See how it works</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="gauge-card">
+          <svg viewBox="0 0 200 120" width="280"><path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#E1ECE8" stroke-width="16" stroke-linecap="round"/><path d="M20 100 A80 80 0 0 1 134 36" fill="none" stroke="#D9534F" stroke-width="16" stroke-linecap="round"/><text x="100" y="92" text-anchor="middle" font-size="32" font-weight="500" fill="#0B3B38" font-family="Georgia,serif">72%</text></svg>
+          <p class="muted" style="font-size:.9rem;margin-top:-6px" data-i18n="sample_heart">Sample heart risk</p>
+          <div style="display:flex;justify-content:center;gap:8px;margin-top:8px"><span class="tag High" data-i18n="tag_high">High risk</span><span class="tag conf" data-i18n="tag_cert_high">Certainty: High</span></div>
+        </div>
+        <div class="hv-pad"></div>
+        <svg class="ecg" viewBox="0 0 400 70" preserveAspectRatio="none"><path d="M0 40 L110 40 L125 40 L135 12 L148 62 L160 28 L172 40 L400 40" fill="none" stroke="#7FD1C7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>41</b><span data-i18n="st1">diseases from symptoms</span></div>
+      <div class="stat"><b>3</b><span data-i18n="st2">AI models: symptoms, heart, diabetes</span></div>
+      <div class="stat"><b data-i18n="st3n">Low to High</b><span data-i18n="st3">three-stage risk level</span></div>
+      <div class="stat"><b data-i18n="st4n">Plan</b><span data-i18n="st4">precautions and diet for you</span></div>
+    </div>
+    <h2 class="section-title" data-i18n="steps_title">Four steps to your result</h2>
+    <div class="steps">
+      <div class="step"><i>1</i><h3 data-i18n="s1t">Enter your details</h3><p data-i18n="s1p">Age, height, weight and vitals. Skip any you don’t know.</p></div>
+      <div class="step"><i>2</i><h3 data-i18n="s2t">Pick your symptoms</h3><p data-i18n="s2p">Choose from 131 symptoms, search or speak them.</p></div>
+      <div class="step"><i>3</i><h3 data-i18n="s3t">Get your risk</h3><p data-i18n="s3p">Likely diseases, risk stage and how certain the model is.</p></div>
+      <div class="step"><i>4</i><h3 data-i18n="s4t">Follow your plan</h3><p data-i18n="s4p">Precautions, diet and links to learn more.</p></div>
+    </div>
+    <h2 class="section-title" data-i18n="feat_title">More than a prediction</h2>
+    <div class="features">
+      <div class="feat"><h3 data-i18n="f1t">Upload your report</h3><p data-i18n="f1p">Photo or PDF of a BP or sugar report fills the form for you.</p></div>
+      <div class="feat"><h3 data-i18n="f2t">Hindi and voice</h3><p data-i18n="f2p">Use the site in Hindi and speak your symptoms.</p></div>
+      <div class="feat"><h3 data-i18n="f3t">Why this result?</h3><p data-i18n="f3p">See which of your values raised your risk the most.</p></div>
+      <div class="feat"><h3 data-i18n="f4t">What-if simulator</h3><p data-i18n="f4p">Slide weight, BP or cholesterol and watch the risk change.</p></div>
+      <div class="feat"><h3 data-i18n="f5t">PDF report and doctors</h3><p data-i18n="f5p">Download your report and find a specialist near you.</p></div>
+      <div class="feat"><h3 data-i18n="f6t">Your history</h3><p data-i18n="f6p">Log in to keep every check-up and see your trend.</p></div>
+    </div>
+    <p class="disclaimer"><b data-i18n="disc_b">Educational project.</b> <span data-i18n="disc_t">HealthGuard does not give a medical diagnosis. If you feel very unwell, call a doctor or an emergency number (112 in India).</span></p>
+  </div>
+</section>
+
+<!-- ================= PAGE: CHECK-UP ================= -->
+<section class="page" id="page-checkup">
+  <div class="wrap">
+    <div class="page-head">
+      <h1 data-i18n="cu_h1">Health check-up</h1>
+      <p data-i18n="cu_p">Fill in what you know. If you don’t know a value, tick “I don’t know” and we will estimate it from your age and BMI.</p>
+    </div>
+    <div class="two-col">
+      <div class="stack">
+        <div class="card upload">
+          <h3 data-i18n="up_h">Upload your report</h3>
+          <p class="sub" data-i18n="up_p">Have a BP or sugar report? Upload a photo or PDF and we fill in the form for you. You can correct anything.</p>
+          <div class="up-row">
+            <label class="btn ghost" for="reportFile" id="upBtn" data-i18n="up_btn">Choose photo or PDF</label>
+            <input type="file" id="reportFile" accept="image/*,application/pdf" hidden>
+            <span class="muted up-note" data-i18n="up_note">Your file is read inside your browser. It is not sent to our server.</span>
+          </div>
+          <div class="up-status" id="upStatus" role="status" aria-live="polite" hidden></div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="body_h">Your body</h3>
+          <p class="sub" data-i18n="body_p">We calculate your BMI from height and weight.</p>
+          <div class="grid2">
+            <div class="field"><label class="lbl" for="age" data-i18n="lbl_age">Age (years)</label><input type="number" id="age" min="1" max="110" placeholder="45"></div>
+            <div class="field"><span class="lbl" data-i18n="lbl_sex">Sex</span>
+              <div class="seg" id="sex"><button type="button" data-v="Male" aria-pressed="false" data-i18n="sex_m">Male</button><button type="button" data-v="Female" aria-pressed="false" data-i18n="sex_f">Female</button></div></div>
+            <div class="field"><label class="lbl" for="height" data-i18n="lbl_height">Height (cm)</label><input type="number" id="height" min="50" max="250" placeholder="170"></div>
+            <div class="field"><label class="lbl" for="weight" data-i18n="lbl_weight">Weight (kg)</label><input type="number" id="weight" min="10" max="300" placeholder="70"></div>
+            <div class="field"><label class="lbl" for="bmi" data-i18n="lbl_bmi">BMI (optional)</label><input type="number" id="bmi" min="10" max="70" step="0.1" data-i18n-ph="ph_bmi" placeholder="Calculated for you"></div>
+            <div class="field" id="pregField" hidden><label class="lbl" for="preg" data-i18n="lbl_preg">Number of pregnancies</label><input type="number" id="preg" min="0" max="20" placeholder="0"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="vit_h">Your vitals</h3>
+          <p class="sub" data-i18n="vit_p">From a recent check-up or a home device.</p>
+          <div class="grid2">
+            <div class="field"><label class="lbl" for="sbp" data-i18n="lbl_sbp">Blood pressure, top number</label><input type="number" id="sbp" min="70" max="260" placeholder="120">
+              <label class="unk"><input type="checkbox" data-unk="sbp,dbp"> <span data-i18n="unk_bp">I don’t know my blood pressure</span></label></div>
+            <div class="field"><label class="lbl" for="dbp" data-i18n="lbl_dbp">Blood pressure, bottom number</label><input type="number" id="dbp" min="40" max="160" placeholder="80"></div>
+            <div class="field"><label class="lbl" for="chol" data-i18n="lbl_chol">Cholesterol (mg/dL)</label><input type="number" id="chol" min="80" max="500" placeholder="190">
+              <label class="unk"><input type="checkbox" data-unk="chol"> <span data-i18n="unk_chol">I don’t know my cholesterol</span></label></div>
+            <div class="field"><label class="lbl" for="glucose" data-i18n="lbl_glucose">Fasting blood sugar (mg/dL)</label><input type="number" id="glucose" min="40" max="500" placeholder="95">
+              <label class="unk"><input type="checkbox" data-unk="glucose"> <span data-i18n="unk_glucose">I don’t know my blood sugar</span></label></div>
+            <div class="field"><label class="lbl" for="hr" data-i18n="lbl_hr">Resting heart rate (beats/min)</label><input type="number" id="hr" min="30" max="220" placeholder="72">
+              <label class="unk"><input type="checkbox" data-unk="hr"> <span data-i18n="unk_hr">I don’t know my heart rate</span></label></div>
+            <div class="field"><label class="lbl" for="cp" data-i18n="lbl_cp">Chest pain</label>
+              <select id="cp"><option value="2" data-i18n="cp_none">No chest pain</option><option value="1" data-i18n="cp_mild">Sharp or mild pain sometimes</option><option value="0" data-i18n="cp_act">Pressure or pain during activity</option></select></div>
+          </div>
+          <label class="toggle" style="margin-top:18px"><input type="checkbox" id="exang"> <span data-i18n="exang_t">Chest pain or tightness when I exercise or climb stairs</span></label>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="life_h">Your lifestyle</h3>
+          <p class="sub" data-i18n="life_p">These help the heart risk model.</p>
+          <div class="grid3">
+            <div class="field"><label class="lbl" for="smoking" data-i18n="lbl_smoking">Smoking</label><select id="smoking"><option value="Never" data-i18n="o_Never">Never</option><option value="Former" data-i18n="o_Former">Former</option><option value="Current" data-i18n="o_Current">Current</option></select></div>
+            <div class="field"><label class="lbl" for="alcohol" data-i18n="lbl_alcohol">Alcohol</label><select id="alcohol"><option value="None" data-i18n="o_None">None</option><option value="Low" data-i18n="o_Low">Low</option><option value="Moderate" data-i18n="o_Moderate">Moderate</option><option value="High" data-i18n="o_High">High</option></select></div>
+            <div class="field"><label class="lbl" for="activity" data-i18n="lbl_activity">Physical activity</label><select id="activity"><option value="Moderate" data-i18n="o_Moderate">Moderate</option><option value="Active" data-i18n="o_Active">Active</option><option value="Sedentary" data-i18n="o_Sedentary">Sedentary</option></select></div>
+            <div class="field"><label class="lbl" for="diet" data-i18n="lbl_diet">Diet</label><select id="diet"><option value="Average" data-i18n="o_Average">Average</option><option value="Healthy" data-i18n="o_Healthy">Healthy</option><option value="Unhealthy" data-i18n="o_Unhealthy">Unhealthy</option></select></div>
+            <div class="field"><label class="lbl" for="stress" data-i18n="lbl_stress">Stress level</label><select id="stress"><option value="Medium" data-i18n="o_Medium">Medium</option><option value="Low" data-i18n="o_Low">Low</option><option value="High" data-i18n="o_High">High</option></select></div>
+          </div>
+          <div class="grid2" style="margin-top:18px">
+            <label class="toggle"><input type="checkbox" id="family"> <span data-i18n="fam_t">Heart disease in my family</span></label>
+            <label class="toggle"><input type="checkbox" id="prev_ha"> <span data-i18n="ha_t">I have had a heart attack before</span></label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="sym_h">Your symptoms</h3>
+          <p class="sub" data-i18n="sym_p">Search, tap, or speak every symptom you have right now.</p>
+          <div class="sym-tools">
+            <input class="search" id="symSearch" type="search" data-i18n-ph="ph_search" placeholder="Search symptoms, for example fever" aria-label="Search symptoms">
+            <button type="button" class="btn ghost mic" id="micBtn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span id="micTxt" data-i18n="mic_btn">Speak</span></button>
+          </div>
+          <p class="mic-say muted" id="micSay" role="status" aria-live="polite" hidden></p>
+          <div class="chips" id="chips" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <aside class="card summary sticky" aria-label="Summary">
+        <h3 style="margin-bottom:16px" data-i18n="sum_h">Your summary</h3>
+        <div class="bmi-box"><div><small>BMI</small><b id="bmiVal">–</b></div><span class="tag" id="bmiTag" hidden></span></div>
+        <ul>
+          <li id="symCountLi"></li>
+          <li id="estInfo"></li>
+        </ul>
+        <div class="err" id="formErr" role="alert" hidden></div>
+        <button class="btn big" id="submitBtn" type="button" data-i18n="btn_check">Check my risk</button>
+        <button class="btn ghost" id="resetBtn" type="button" data-i18n="btn_reset" style="margin-top:10px">Reset all</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE: RESULTS ================= -->
+<section class="page" id="page-results"><div class="wrap" id="resultsBody"></div></section>
+
+<!-- ================= PAGE: HISTORY ================= -->
+<section class="page" id="page-history"><div class="wrap" id="historyBody"></div></section>
+
+<!-- ================= PAGE: LOGIN / SIGN UP ================= -->
+<section class="page" id="page-login">
+  <div class="wrap narrow">
+    <div class="card">
+      <h1 style="font-size:2.2rem" data-i18n="lg_h1">Your account</h1>
+      <p class="muted" style="margin:8px 0 22px" data-i18n="lg_guest">You can use HealthGuard without an account. An account only saves your history.</p>
+      <div class="seg" id="authTabs" role="tablist">
+        <button type="button" data-tab="login" aria-pressed="true" data-i18n="tab_login">Login</button>
+        <button type="button" data-tab="signup" aria-pressed="false" data-i18n="tab_signup">Sign up</button>
+      </div>
+      <form id="authForm" novalidate style="margin-top:22px">
+        <div class="field" id="nameField" hidden style="margin-bottom:14px"><label class="lbl" for="authName" data-i18n="lg_name">Name</label><input type="text" id="authName" autocomplete="name" maxlength="60"></div>
+        <div class="field" style="margin-bottom:14px"><label class="lbl" for="authEmail" data-i18n="lg_email">Email</label><input type="email" id="authEmail" autocomplete="email"></div>
+        <div class="field" style="margin-bottom:14px"><label class="lbl" for="authPw" data-i18n="lg_pw">Password</label><input type="password" id="authPw" autocomplete="current-password"><small class="muted" id="pwHint" hidden data-i18n="lg_pw_hint">At least 6 characters</small></div>
+        <div class="err" id="authErr" role="alert" hidden></div>
+        <button class="btn big" id="authSubmit" type="submit" style="width:100%" data-i18n="btn_do_login">Login</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE: MODELS ================= -->
+<section class="page" id="page-models">
+  <div class="wrap">
+    <div class="page-head">
+      <h1 data-i18n="mod_h1">How accurate is it?</h1>
+      <p data-i18n="mod_p">We trained many algorithms for every model and kept the best. Scores come from 5-fold cross-validation, which tests on data the model has not seen.</p>
+    </div>
+    <div class="models" id="modelsBody"></div>
+  </div>
+</section>
+
+<!-- ================= PAGE: HOW IT WORKS ================= -->
+<section class="page" id="page-how">
+  <div class="wrap">
+    <div class="page-head">
+      <h1 data-i18n="how_h1">How it works</h1>
+      <p data-i18n="how_p">From the form on this page to your result, in six steps.</p>
+    </div>
+    <div class="flow">
+      <div class="node"><b data-i18n="n1t">1. Browser</b><span data-i18n="n1s">HTML form, CSS, JavaScript</span></div><div class="arrow">›</div>
+      <div class="node"><b data-i18n="n2t">2. fetch()</b><span data-i18n="n2s">sends your answers as JSON</span></div><div class="arrow">›</div>
+      <div class="node hl"><b data-i18n="n3t">3. Flask</b><span data-i18n="n3s">route /api/predict in app.py</span></div><div class="arrow">›</div>
+      <div class="node hl"><b data-i18n="n4t">4. ML models</b><span data-i18n="n4s">.pkl files, predict_proba</span></div><div class="arrow">›</div>
+      <div class="node"><b data-i18n="n5t">5. JSON</b><span data-i18n="n5s">diseases, risk, certainty</span></div><div class="arrow">›</div>
+      <div class="node"><b data-i18n="n6t">6. Results page</b><span data-i18n="n6s">gauges, bars, plan</span></div>
+    </div>
+    <div class="how-grid">
+      <div class="card"><h3 data-i18n="c1_h">Data cleaning</h3>
+        <ul><li data-i18n="c1_1">Removed 4,616 duplicate symptom rows (4,920 to 304 unique).</li><li data-i18n="c1_2">Fixed column names and disease spellings.</li><li data-i18n="c1_3">Replaced impossible zeros (blood pressure, BMI, glucose) with the median.</li><li data-i18n="c1_4">Removed 723 duplicate rows and fixed an inverted label in the heart data.</li></ul></div>
+      <div class="card"><h3 data-i18n="c2_h">Three models</h3>
+        <ul><li data-i18n="c2_1">Symptoms to one of 41 diseases (Random Forest).</li><li data-i18n="c2_2">Heart risk from two datasets, averaged.</li><li data-i18n="c2_3">Diabetes risk from glucose, BP, BMI, age.</li></ul></div>
+      <div class="card"><h3 data-i18n="c3_h">Risk level</h3>
+        <p data-i18n="c3_p1">For heart and diabetes the model gives a probability.</p>
+        <div class="formula" data-i18n="c3_f1">under 30% Low · 30–60% Intermediate · 60%+ High</div>
+        <p style="margin-top:12px" data-i18n="c3_p2">For each disease from symptoms we combine the model’s probability with how many of the disease’s typical symptoms you have.</p>
+        <div class="formula">score = 0.6 × probability + 0.4 × symptom match</div></div>
+      <div class="card"><h3 data-i18n="c4_h">Certainty</h3>
+        <p data-i18n="c4_p1">Certainty says how sure the model is. If many diseases share your symptoms, the probability is shared and certainty is lower. Add more symptoms to raise it.</p>
+        <p style="margin-top:10px" data-i18n="c4_p2">Values you skip are estimated and can lower certainty by one level.</p></div>
+      <div class="card"><h3 data-i18n="c5_h">Why this result?</h3>
+        <p data-i18n="c5_p">For each value we swap your number for a healthy one and see how much the risk falls. The biggest drops are the factors that pushed your risk up.</p></div>
+      <div class="card"><h3 data-i18n="c6_h">Your data</h3>
+        <p data-i18n="c6_p">Reports are read in your browser. Passwords are stored only as hashes. Without an account nothing is saved.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span data-i18n="foot_t">HealthGuard is an educational machine learning project. It is not medical advice. Emergency in India: 112.</span></div></footer>
+
+<script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
